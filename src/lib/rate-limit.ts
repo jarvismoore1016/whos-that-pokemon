@@ -18,7 +18,7 @@ function getRedis(): Redis {
 export function getPokemonRateLimit(): Ratelimit {
   return new Ratelimit({
     redis: getRedis(),
-    limiter: Ratelimit.slidingWindow(5, "1 d"),
+    limiter: Ratelimit.slidingWindow(10, "1 d"),
     prefix: "pokemon:generate",
   });
 }
